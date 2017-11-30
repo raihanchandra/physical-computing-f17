@@ -1,4 +1,4 @@
-int potPin = 4;
+                                                int potPin = 4;
 int speakerPin = 7;
 
 void setup() {
@@ -6,7 +6,7 @@ void setup() {
 
   pinMode(speakerPin, OUTPUT);
 }
-
+   
 void loop() {
   int val = analogRead(potPin);
   Serial.println(val);
