@@ -3,37 +3,74 @@
 Servo myservo;
 Servo myservo2;
 
-int upX = 120;
-int upY = 40;
-
-int homeX = 120;
-int homeY = 30;
 
 int pos = 0;    // variable to store the servo position
 
 void setup() {
-myservo.attach(7);
-myservo2.attach(6);
+  myservo.attach(7);
+  myservo2.attach(6);
+
+  Serial.begin(9600);
 }
 
 void loop() {
-goHome;
-goUp;
-goHome;
+  setOne();
+  setOne();
+  setTwo();
+  setTwo();
+  
+
+  Serial.println("!");
 }
 
-void goHome(){
-myservo.write(homeX);
-myservo2.write(homeY);
-delay(1000);
-}
-
-void goUp(){
-  myservo.write(upX);
-  myservo2.write(upY);
+void goHome() {
+  myservo.write(120);
+  myservo2.write(30);
   delay(1000);
 }
 
+void goUp() {
+  myservo.write(120);
+  myservo2.write(50);
+  delay(1000);
+}
 
+void goDown() {
+  myservo.write(120);
+  myservo2.write(10);
+  delay(1000);
+}
 
+void goForward() {
+  myservo.write(140);
+  myservo2.write(30);
+  delay(1000);
+}
+
+void goBack() {
+  myservo.write(100);
+  myservo2.write(30);
+  delay(1000);
+}
+
+void setOne() {
+  goForward();
+  goHome();
+  goForward();
+  goHome();
+}
+
+void setTwo(){
+  goBack();
+  goHome();
+  goBack();
+  goHome();
+}
+
+void setThree(){
+  goDown();
+  goForward();
+  goUp();
+  goHome();
+}
 
